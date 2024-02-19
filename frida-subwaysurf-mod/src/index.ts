@@ -3,23 +3,23 @@ import "frida-il2cpp-bridge";
 import { menuIcon } from "./menu-icon.js";
 import { setupTheme } from "./theme.js";
 
-console.log("[*] Frida Loaded");
+console.log("[*] Modded By Yeet");
 
 var menuData = {
     enable: false,
     infCurrency: false,
-    disableCollision: false,
+    godMode: false,
     infJumps: false,
     scoreMultiplier: 1,
     flashMode: false,
     freeIAPs: false,
-    unlockCosmetics: false,
+    unlockAllCharacters: false,
     infPowers: false
 };
 
 function main() {
     setupTheme();
-    let menu = new Menu.JavaMenu("Subway Surfers Mod", "Modded by rdbo - https://github.com/rdbo/subwaysurfers-modmenu");
+    let menu = new Menu.JavaMenu("Subway Surfers Mod", "Modded by yeet");
     menu.icon(menuIcon, "Normal");
 
     menu.add(menu.toggle("Enable", function (this: any, state: boolean) {
@@ -32,9 +32,9 @@ function main() {
         console.log("[*] Infinite Currency State: " + menuData.infCurrency);
     }));
 
-    menu.add(menu.toggle("No Collision", function (this: any, state: boolean) : void {
-        menuData.disableCollision = state;
-        console.log("[*] No Collision State: " + menuData.infCurrency);
+    menu.add(menu.toggle("God Mode", function (this: any, state: boolean) : void {
+        menuData.godMode = state;
+        console.log("[*] God Mode: " + menuData.infCurrency);
     }));
 
     menu.add(menu.toggle("Infinite Jumps", function (this: any, state: boolean) : void {
@@ -52,9 +52,9 @@ function main() {
         console.log("[*] Free IAPs State: " + menuData.freeIAPs);
     }));
 
-    menu.add(menu.toggle("Unlock Cosmetics", function (this: any, state: boolean) : void {
-        menuData.unlockCosmetics = state;
-        console.log("[*] Unlock Cosmetics State: " + menuData.freeIAPs);
+    menu.add(menu.toggle("Unlock All Characters", function (this: any, state: boolean) : void {
+        menuData.unlockAllCharacters = state;
+        console.log("[*] Unlock All Characters State: " + menuData.freeIAPs);
     }));
 
     menu.add(menu.toggle("Infinite Powers", function (this: any, state: boolean) : void {
